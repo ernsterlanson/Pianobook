@@ -64,7 +64,7 @@ export default function Home() {
           <Button
             size="lg"
             colorScheme="green"
-            onClick={() => navigate('/song/1')}
+            onClick={() => navigate('/songs/1')}
             w="200px"
           >
             Start Playing
