@@ -7,7 +7,13 @@ import Songs from './pages/Songs'
 import SongPage from './pages/songs/songId/SongPage'
 import RhythmActivities from './pages/songs/songId/activities/rhythm/RhythmActivities'
 import FeelTheBeats from './pages/songs/songId/activities/rhythm/FeelTheBeats'
+import BeMyEcho from './pages/songs/songId/activities/rhythm/BeMyEcho'
+import BeDifferent from './pages/songs/songId/activities/rhythm/BeDifferent'
 import TonalActivities from './pages/songs/songId/activities/tonal/TonalActivities'
+import TonalBeMyEcho from './pages/songs/songId/activities/tonal/TonalBeMyEcho'
+import RestingTone from './pages/songs/songId/activities/tonal/RestingTone'
+import FirstPitch from './pages/songs/songId/activities/tonal/FirstPitch'
+import SingASong from './pages/songs/songId/activities/tonal/SingASong'
 import PlaySong from './pages/songs/songId/activities/play/PlaySong'
 import Listen from './pages/songs/songId/activities/play/Listen'
 import Prepare from './pages/songs/songId/activities/play/Prepare'
@@ -30,15 +36,15 @@ function App() {
             {/* Rhythm Activity Routes */}
             <Route path="/songs/:songId/activities/rhythm" element={<RhythmActivities />} />
             <Route path="/songs/:songId/activities/rhythm/feel" element={<FeelTheBeats />} />
-            <Route path="/songs/:songId/activities/rhythm/echo" element={<RhythmActivities />} />
-            <Route path="/songs/:songId/activities/rhythm/different" element={<RhythmActivities />} />
+            <Route path="/songs/:songId/activities/rhythm/echo" element={<BeMyEcho />} />
+            <Route path="/songs/:songId/activities/rhythm/different" element={<BeDifferent />} />
             
             {/* Tonal Activity Routes */}
             <Route path="/songs/:songId/activities/tonal" element={<TonalActivities />} />
-            <Route path="/songs/:songId/activities/tonal/echo" element={<TonalActivities />} />
-            <Route path="/songs/:songId/activities/tonal/resting-tone" element={<TonalActivities />} />
-            <Route path="/songs/:songId/activities/tonal/first-pitch" element={<TonalActivities />} />
-            <Route path="/songs/:songId/activities/tonal/sing" element={<TonalActivities />} />
+            <Route path="/songs/:songId/activities/tonal/echo" element={<TonalBeMyEcho />} />
+            <Route path="/songs/:songId/activities/tonal/resting-tone" element={<RestingTone />} />
+            <Route path="/songs/:songId/activities/tonal/first-pitch" element={<FirstPitch />} />
+            <Route path="/songs/:songId/activities/tonal/sing" element={<SingASong />} />
             
             {/* Play Song Routes */}
             <Route path="/songs/:songId/activities/play" element={<PlaySong />} />

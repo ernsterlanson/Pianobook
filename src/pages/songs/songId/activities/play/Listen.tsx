@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, VStack, Heading, Button, AspectRatio, Text, Icon } from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { FaMusic, FaHeadphones } from 'react-icons/fa'
+import { FaMusic, FaPlay } from 'react-icons/fa'
 
 export default function Listen() {
   const navigate = useNavigate()
@@ -13,7 +13,7 @@ export default function Listen() {
         onClick={() => navigate(`/songs/${songId}/activities/play`)} 
         mb={6}
         leftIcon={<Icon as={FaMusic} />}
-        colorScheme="brand.primary"
+        colorScheme="red"
       >
         Back to Play Options
       </Button>
@@ -26,23 +26,21 @@ export default function Listen() {
         Listen to the Song 🎧
       </Heading>
       
-      {/* Audio Player */}
+      {/* Video Player */}
       <Box mb={8}>
-        <AspectRatio ratio={16 / 2}>
+        <AspectRatio ratio={16 / 9}>
           <Box
-            bg="white"
+            bg="gray.100"
             borderRadius="xl"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            color="brand.primary"
+            color="gray.500"
             fontSize="xl"
             boxShadow="lg"
-            border="4px solid"
-            borderColor="brand.accent"
           >
-            <Icon as={FaHeadphones} mr={4} />
-            Audio Player Placeholder
+            <Icon as={FaPlay} mr={4} />
+            Video Player Placeholder
           </Box>
         </AspectRatio>
       </Box>
@@ -52,7 +50,7 @@ export default function Listen() {
         color="gray.600"
         fontSize="lg"
       >
-        Put on your headphones and enjoy the music! 🎵
+        Watch and listen to learn the song! 🎵
       </Text>
     </Box>
   )

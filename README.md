@@ -52,3 +52,7 @@ export default tseslint.config({
   },
 })
 ```
+TODO
+  Finish the different buttons on all songs. 
+  start to fill it up with content. 
+  Start with the pianoroll

@@ -13,7 +13,7 @@ export default function Prepare() {
         onClick={() => navigate(`/songs/${songId}/activities/play`)} 
         mb={6}
         leftIcon={<Icon as={FaMusic} />}
-        colorScheme="brand.primary"
+        colorScheme="teal"
       >
         Back to Play Options
       </Button>
@@ -30,16 +30,14 @@ export default function Prepare() {
       <Box mb={8}>
         <AspectRatio ratio={16 / 9}>
           <Box
-            bg="white"
+            bg="gray.100"
             borderRadius="xl"
             display="flex"
             alignItems="center"
             justifyContent="center"
-            color="brand.secondary"
+            color="gray.500"
             fontSize="xl"
             boxShadow="lg"
-            border="4px solid"
-            borderColor="brand.accent"
           >
             <Icon as={FaPlay} mr={4} />
             Video Player Placeholder

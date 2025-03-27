@@ -13,7 +13,7 @@ export default function PlaySong() {
         onClick={() => navigate(`/songs/${songId}`)} 
         mb={6}
         leftIcon={<Icon as={FaMusic} />}
-        colorScheme="brand.primary"
+        colorScheme="red"
       >
         Back to Song
       </Button>
@@ -28,7 +28,7 @@ export default function PlaySong() {
       <VStack spacing={6} align="stretch">
         <Button
           size="lg"
-          colorScheme="brand.primary"
+          colorScheme="red"
           onClick={() => navigate(`/songs/${songId}/activities/play/listen`)}
           leftIcon={<Icon as={FaMusic} />}
           height="80px"
@@ -38,7 +38,7 @@ export default function PlaySong() {
         </Button>
         <Button
           size="lg"
-          colorScheme="brand.secondary"
+          colorScheme="teal"
           onClick={() => navigate(`/songs/${songId}/activities/play/prepare`)}
           leftIcon={<Icon as={FaKeyboard} />}
           height="80px"
@@ -48,7 +48,7 @@ export default function PlaySong() {
         </Button>
         <Button
           size="lg"
-          colorScheme="brand.accent"
+          colorScheme="yellow"
           onClick={() => navigate(`/songs/${songId}/activities/play/perform`)}
           leftIcon={<Icon as={FaGraduationCap} />}
           height="80px"
