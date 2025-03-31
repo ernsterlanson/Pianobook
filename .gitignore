@@ -24,8 +24,7 @@ dist-ssr
 *.sw?
 
 # Media files
-public/videos/*
-public/media/*
+*.mp3
 *.mp4
 *.mov
 *.avi
@@ -33,7 +32,15 @@ public/media/*
 *.flv
 *.mkv
 *.webm
+*.wav
+*.m4a
+*.ogg
 
-# But keep the folders
-!public/videos/.gitkeep
-!public/media/.gitkeep 
+# Ignore all files in media directories
+public/audio/units/*/**
+public/videos/units/*/**
+
+# But keep the .gitkeep files and README
+!public/audio/units/*/.gitkeep
+!public/videos/units/*/.gitkeep
+!public/README.md 

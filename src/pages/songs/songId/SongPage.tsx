@@ -1,45 +1,51 @@
 import React from 'react'
-import { Box, VStack, Heading, Button } from '@chakra-ui/react'
+import { Box, VStack, Heading, Button, Icon } from '@chakra-ui/react'
 import { useNavigate, useParams, Navigate } from 'react-router-dom'
-import { songs } from '../../../data/songs'
+import { FaArrowLeft } from 'react-icons/fa'
+import { getBookSong } from '../../../data/books'
 
 export default function SongPage() {
   const navigate = useNavigate()
-  const { songId } = useParams()
+  const { bookId, songId } = useParams()
   
-  // Find the song based on the ID
-  const song = songs.find(s => s.id === Number(songId))
+  // Find the song based on the book and song ID
+  const song = getBookSong(bookId || '', songId || '')
   
-  // If song not found, redirect to songs list
+  // If song not found, redirect to book page
   if (!song) {
-    return <Navigate to="/songs" />
+    return <Navigate to={`/books/${bookId}`} />
   }
 
   return (
-    <Box p={8}>
-      <Button onClick={() => navigate('/songs')} mb={6}>
+    <Box p={8} maxW="800px" mx="auto">
+      <Button 
+        onClick={() => navigate(`/books/${bookId}`)} 
+        mb={6}
+        leftIcon={<Icon as={FaArrowLeft} />}
+        colorScheme="yellow"
+      >
         Back to Songs
       </Button>
-      <Heading mb={6}>{song.title}</Heading>
+      <Heading mb={6} color="brand.accent" textAlign="center">{song.title}</Heading>
       <VStack spacing={6} align="stretch">
         <Button
           size="lg"
           colorScheme="blue"
-          onClick={() => navigate(`/songs/${songId}/activities/rhythm`)}
+          onClick={() => navigate(`/books/${bookId}/songs/${song.id}/activities/rhythm`)}
         >
           Rhythm Activities
         </Button>
         <Button
           size="lg"
           colorScheme="purple"
-          onClick={() => navigate(`/songs/${songId}/activities/tonal`)}
+          onClick={() => navigate(`/books/${bookId}/songs/${song.id}/activities/tonal`)}
         >
           Tonal Activities
         </Button>
         <Button
           size="lg"
           colorScheme="green"
-          onClick={() => navigate(`/songs/${songId}/activities/play`)}
+          onClick={() => navigate(`/books/${bookId}/songs/${song.id}/activities/play`)}
         >
           Play the Song
         </Button>

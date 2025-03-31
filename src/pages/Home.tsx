@@ -1,84 +1,59 @@
 import React from 'react'
-import { Box, VStack, Heading, Button, Text, Image, HStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import {
+  Box,
+  SimpleGrid,
+  Heading,
+  Text,
+  VStack,
+  Image,
+  useColorModeValue,
+} from '@chakra-ui/react'
+import { books } from '../data/books'
 
 export default function Home() {
   const navigate = useNavigate()
+  const cardBg = useColorModeValue('white', 'gray.700')
+  const cardHoverBg = useColorModeValue('gray.50', 'gray.600')
 
   return (
-    <Box 
-      p={8} 
-      minH="100vh" 
-      display="flex" 
-      flexDirection="column" 
-      alignItems="center" 
-      justifyContent="center"
-      bg="white"
-    >
-      <VStack spacing={8} maxW="800px" w="100%" textAlign="center">
-        <Heading 
-          size="2xl" 
-          mb={2}
-          fontFamily="serif"
-          color="black"
-        >
-          Keyboard Games
-        </Heading>
-        
-        <Text 
-          fontSize="2xl" 
-          color="blue.600" 
-          fontStyle="italic"
-          mb={4}
-        >
-          Music Moves for Piano
-        </Text>
-        
-        <Box 
-          w="100%" 
-          h="200px" 
-          bg="red.700" 
-          position="relative" 
-          borderRadius="md"
-          mb={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          {/* This represents the dancing figures silhouette */}
-          <Text color="white" fontSize="sm">Dancing Figures Placeholder</Text>
+    <Box p={8} maxW="1200px" mx="auto">
+      <VStack spacing={8} align="stretch">
+        <Box textAlign="center">
+          <Heading size="2xl" color="brand.accent" mb={4}>
+            Piano Learning Journey
+          </Heading>
+          <Text fontSize="xl" color="gray.600">
+            Choose your piano book to begin
+          </Text>
         </Box>
 
-        <Heading 
-          color="red.700" 
-          size="xl"
-          mb={4}
-        >
-          Book A
-        </Heading>
-
-        <Text mb={2}>By Marilyn Lowe</Text>
-        <Text fontSize="sm" mb={6}>In Cooperation with Edwin E. Gordon</Text>
-
-        <HStack spacing={4} justify="center">
-          <Button
-            size="lg"
-            colorScheme="green"
-            onClick={() => navigate('/songs/1')}
-            w="200px"
-          >
-            Start Playing
-          </Button>
-          <Button
-            size="lg"
-            colorScheme="blue"
-            onClick={() => navigate('/songs')}
-            w="200px"
-            variant="outline"
-          >
-            Browse All Songs
-          </Button>
-        </HStack>
+        <SimpleGrid columns={[1, null, 2]} spacing={8}>
+          {books.map((book) => (
+            <Box
+              key={book.id}
+              p={6}
+              bg={cardBg}
+              borderRadius="xl"
+              boxShadow="lg"
+              cursor="pointer"
+              transition="all 0.2s"
+              _hover={{ bg: cardHoverBg, transform: 'translateY(-2px)' }}
+              onClick={() => navigate(`/books/${book.id}`)}
+            >
+              <VStack spacing={4} align="stretch">
+                <Image
+                  src={book.coverImage}
+                  alt={book.title}
+                  borderRadius="md"
+                  fallbackSrc="https://via.placeholder.com/300x400?text=Book+Cover"
+                />
+                <Heading size="lg">{book.title}</Heading>
+                <Text color="gray.600">{book.description}</Text>
+              </VStack>
+            </Box>
+          ))}
+        </SimpleGrid>
       </VStack>
     </Box>
   )

@@ -3,7 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ChakraProvider, Box } from '@chakra-ui/react'
 import theme from './theme'
 import Home from './pages/Home'
-import Songs from './pages/Songs'
+import BookPage from './pages/BookPage'
+import UnitPage from './pages/UnitPage'
+import UnitDetailPage from './pages/UnitDetailPage'
+import SongToSing from './pages/activities/SongToSing'
+import PatternPlay from './pages/activities/PatternPlay'
+import KeyboardPlay from './pages/activities/KeyboardPlay'
 import SongPage from './pages/songs/songId/SongPage'
 import RhythmActivities from './pages/songs/songId/activities/rhythm/RhythmActivities'
 import FeelTheBeats from './pages/songs/songId/activities/rhythm/FeelTheBeats'
@@ -30,27 +35,32 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/songs" element={<Songs />} />
-            <Route path="/songs/:songId" element={<SongPage />} />
+            <Route path="/books/:bookId" element={<BookPage />} />
+            <Route path="/books/:bookId/units" element={<UnitPage />} />
+            <Route path="/books/:bookId/unit/:unitId" element={<UnitDetailPage />} />
+            <Route path="/books/:bookId/unit/:unitId/sing" element={<SongToSing />} />
+            <Route path="/books/:bookId/unit/:unitId/pattern" element={<PatternPlay />} />
+            <Route path="/books/:bookId/unit/:unitId/keyboard" element={<KeyboardPlay />} />
+            <Route path="/books/:bookId/songs/:songId" element={<SongPage />} />
             
             {/* Rhythm Activity Routes */}
-            <Route path="/songs/:songId/activities/rhythm" element={<RhythmActivities />} />
-            <Route path="/songs/:songId/activities/rhythm/feel" element={<FeelTheBeats />} />
-            <Route path="/songs/:songId/activities/rhythm/echo" element={<BeMyEcho />} />
-            <Route path="/songs/:songId/activities/rhythm/different" element={<BeDifferent />} />
+            <Route path="/books/:bookId/songs/:songId/activities/rhythm" element={<RhythmActivities />} />
+            <Route path="/books/:bookId/songs/:songId/activities/rhythm/feel" element={<FeelTheBeats />} />
+            <Route path="/books/:bookId/songs/:songId/activities/rhythm/echo" element={<BeMyEcho />} />
+            <Route path="/books/:bookId/songs/:songId/activities/rhythm/different" element={<BeDifferent />} />
             
             {/* Tonal Activity Routes */}
-            <Route path="/songs/:songId/activities/tonal" element={<TonalActivities />} />
-            <Route path="/songs/:songId/activities/tonal/echo" element={<TonalBeMyEcho />} />
-            <Route path="/songs/:songId/activities/tonal/resting-tone" element={<RestingTone />} />
-            <Route path="/songs/:songId/activities/tonal/first-pitch" element={<FirstPitch />} />
-            <Route path="/songs/:songId/activities/tonal/sing" element={<SingASong />} />
+            <Route path="/books/:bookId/songs/:songId/activities/tonal" element={<TonalActivities />} />
+            <Route path="/books/:bookId/songs/:songId/activities/tonal/echo" element={<TonalBeMyEcho />} />
+            <Route path="/books/:bookId/songs/:songId/activities/tonal/resting-tone" element={<RestingTone />} />
+            <Route path="/books/:bookId/songs/:songId/activities/tonal/first-pitch" element={<FirstPitch />} />
+            <Route path="/books/:bookId/songs/:songId/activities/tonal/sing" element={<SingASong />} />
             
             {/* Play Song Routes */}
-            <Route path="/songs/:songId/activities/play" element={<PlaySong />} />
-            <Route path="/songs/:songId/activities/play/listen" element={<Listen />} />
-            <Route path="/songs/:songId/activities/play/prepare" element={<Prepare />} />
-            <Route path="/songs/:songId/activities/play/perform" element={<Tutorial />} />
+            <Route path="/books/:bookId/songs/:songId/activities/play" element={<PlaySong />} />
+            <Route path="/books/:bookId/songs/:songId/activities/play/listen" element={<Listen />} />
+            <Route path="/books/:bookId/songs/:songId/activities/play/prepare" element={<Prepare />} />
+            <Route path="/books/:bookId/songs/:songId/activities/play/perform" element={<Tutorial />} />
           </Routes>
         </Router>
       </Box>
