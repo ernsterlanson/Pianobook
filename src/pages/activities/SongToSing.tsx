@@ -19,7 +19,7 @@ export default function SongToSing() {
 
   // This would come from your data/API
   const getAudioUrl = (unitId: string) => {
-    return `/audio/units/${unitId}/song-to-sing.mp3` // Placeholder URL structure
+    return `/audio/units/${unitId}/song-to-sing/song-to-sing-unit${unitId}.mp3`
   }
 
   return (
@@ -62,10 +62,6 @@ export default function SongToSing() {
                 Your browser does not support the audio element.
               </audio>
             </Box>
-
-            <Text fontSize="sm" color="gray.600">
-              Note: Audio content will be loaded here. For now, this is a placeholder.
-            </Text>
           </VStack>
         </Box>
       </VStack>

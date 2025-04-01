@@ -19,7 +19,7 @@ export default function PatternPlay() {
 
   // This would come from your data/API
   const getAudioUrl = (unitId: string) => {
-    return `/audio/units/${unitId}/pattern-play.mp3` // Placeholder URL structure
+    return `/audio/units/${unitId}/pattern-play/pattern-play-unit${unitId}.mp3`
   }
 
   return (
