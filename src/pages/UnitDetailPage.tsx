@@ -21,19 +21,14 @@ export default function UnitDetailPage() {
   const book = getBook(bookId || '')
 
   const getKeyboardDescription = (unitId: string) => {
-    switch (unitId) {
-      case '1':
-        return 'Play popcorn on the keyboard'
-      default:
-        return 'Play the song on the keyboard'
-    }
+    return 'practice the pieces of this unit'
   }
 
   const activities = [
     {
       id: 'sing',
       title: 'Song to Sing',
-      description: 'Learn and practice the song by singing',
+      description: 'Learn to sing a song',
       icon: '🎵'
     },
     {

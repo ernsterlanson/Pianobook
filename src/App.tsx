@@ -9,6 +9,10 @@ import UnitDetailPage from './pages/UnitDetailPage'
 import SongToSing from './pages/activities/SongToSing'
 import PatternPlay from './pages/activities/PatternPlay'
 import KeyboardPlay from './pages/activities/KeyboardPlay'
+import KeyboardPlaySong from './pages/activities/KeyboardPlaySong'
+import KeyboardTutorial from './pages/activities/KeyboardTutorial'
+import KeyboardPianoRoll from './pages/activities/KeyboardPianoRoll'
+import KeyboardListen from './pages/activities/KeyboardListen'
 import SongPage from './pages/songs/songId/SongPage'
 import RhythmActivities from './pages/songs/songId/activities/rhythm/RhythmActivities'
 import FeelTheBeats from './pages/songs/songId/activities/rhythm/FeelTheBeats'
@@ -41,6 +45,10 @@ function App() {
             <Route path="/books/:bookId/unit/:unitId/sing" element={<SongToSing />} />
             <Route path="/books/:bookId/unit/:unitId/pattern" element={<PatternPlay />} />
             <Route path="/books/:bookId/unit/:unitId/keyboard" element={<KeyboardPlay />} />
+            <Route path="/books/:bookId/unit/:unitId/keyboard/:songId" element={<KeyboardPlaySong />} />
+            <Route path="/books/:bookId/unit/:unitId/keyboard/:songId/tutorial" element={<KeyboardTutorial />} />
+            <Route path="/books/:bookId/unit/:unitId/keyboard/:songId/tutorial/:part" element={<KeyboardPianoRoll />} />
+            <Route path="/books/:bookId/unit/:unitId/keyboard/:songId/listen" element={<KeyboardListen />} />
             <Route path="/books/:bookId/songs/:songId" element={<SongPage />} />
             
             {/* Rhythm Activity Routes */}

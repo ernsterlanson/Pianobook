@@ -7,9 +7,11 @@ import {
   Text,
   IconButton,
   Container,
-  AspectRatio,
+  Button,
+  Icon,
 } from '@chakra-ui/react'
 import { ChevronLeftIcon } from '@chakra-ui/icons'
+import { FaMusic } from 'react-icons/fa'
 import { getBook } from '../../data/books'
 
 export default function KeyboardPlay() {
@@ -17,10 +19,20 @@ export default function KeyboardPlay() {
   const { bookId, unitId } = useParams()
   const book = getBook(bookId || '')
 
-  // This would come from your data/API
-  const getVideoUrl = (unitId: string) => {
-    return `/videos/units/${unitId}/piano-roll.mp4` // Placeholder URL structure
+  const getUnitSongs = (unitId: string) => {
+    if (unitId === '1') {
+      return [
+        {
+          id: 'popcorn',
+          title: 'Popcorn',
+          description: 'A fun and bouncy piece to start your piano journey',
+        }
+      ]
+    }
+    return [] // For future units
   }
+
+  const songs = getUnitSongs(unitId || '')
 
   return (
     <Container maxW="container.md" p={8}>
@@ -43,31 +55,28 @@ export default function KeyboardPlay() {
           borderRadius="xl" 
           boxShadow="lg"
         >
-          <VStack spacing={4} align="stretch">
-            <Text fontSize="lg" mb={4}>
-              Watch the piano roll and play along
+          <VStack spacing={6} align="stretch">
+            <Text fontSize="lg" mb={4} textAlign="center">
+              Choose a song to play
             </Text>
             
-            <AspectRatio ratio={16 / 9}>
-              <Box 
-                border="1px" 
-                borderColor="gray.200" 
-                borderRadius="md" 
-                overflow="hidden"
+            {songs.map((song) => (
+              <Button
+                key={song.id}
+                size="lg"
+                height="100px"
+                colorScheme="blue"
+                onClick={() => navigate(`/books/${bookId}/unit/${unitId}/keyboard/${song.id}`)}
+                leftIcon={<Icon as={FaMusic} boxSize={6} />}
               >
-                <video
-                  controls
-                  style={{ width: '100%', height: '100%' }}
-                  src={getVideoUrl(unitId || '')}
-                >
-                  Your browser does not support the video element.
-                </video>
-              </Box>
-            </AspectRatio>
-
-            <Text fontSize="sm" color="gray.600">
-              Note: Piano roll video will be loaded here. For now, this is a placeholder.
-            </Text>
+                <VStack spacing={2} align="start">
+                  <Text fontSize="xl">{song.title}</Text>
+                  <Text fontSize="sm" color="gray.100">
+                    {song.description}
+                  </Text>
+                </VStack>
+              </Button>
+            ))}
           </VStack>
         </Box>
       </VStack>

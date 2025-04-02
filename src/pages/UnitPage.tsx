@@ -38,7 +38,7 @@ export default function UnitPage() {
           <IconButton
             aria-label="Go back"
             icon={<ChevronLeftIcon />}
-            onClick={() => navigate(`/books/${bookId}`)}
+            onClick={() => navigate('/')}
             mb={4}
           />
           <Heading size="2xl" color="brand.accent" mb={4}>
